@@ -31,7 +31,7 @@ Dùng lệnh sau để tải bài lab:
 
 Chạy bài lab:
 
-![img](0)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image.png?raw=true)
 
 ### Hướng dẫn thực hiện bài lab
 
@@ -40,12 +40,12 @@ Trên máy Monitor, thực thi file text_to_bit_groups.py:
 
     python3 text_to_bit_groups.py
 
-![img](1)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image1.png?raw=true)
 
 Output là 3 bit ***Reserved*** trong trường ***Flags*** của TCP header tương ứng với từng ký tự trong thông điệp "hi".<br>
 Mở file và thay đổi thông điệp thành "HelloPTIT":
 
-![img](2)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image2.png?raw=true)
 
 Thực thì file và lưu output vào result_bit_groups.txt: 
 
@@ -53,74 +53,74 @@ Thực thì file và lưu output vào result_bit_groups.txt:
 
 In ra nội dung file result_bit_groups.txt:
 
-![img](3)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image3.png?raw=true)
 
 *Checkwork 2*<br>
 Trên máy Receiver, thực thi file receive_reserved_unused.py để lắng nghe gói tin đến:
 
     sudo python3 eceive_reserved_unused.py
 
-![img](4)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image4.png?raw=true)
 
 Trên máy Sender, thực thi file send_reserved_unused.py và nhập thông điệp:
 
     sudo python3 send_reserved_unused.py
 Quan sát quá trình giấu và tách tin:
 
-![img](5)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image5.png?raw=true)
 
 *Checkwork 3*<br>
 Trên máy Receiver, dùng ***tcpdump*** trên máy Receiver để lưu lưu lượng gói tin đến vào file .pcap:
 
     sudo tcpdump -i eth0 "tcp and src 173.30.0.3 and dst 173.30.0.4" -w captured_traffic.pcap
 
-![img](6)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image6.png?raw=true)
 
 Trên máy Sender, thực thi file send_reserved_unused.py và nhập thông điệp:
 
     sudo python3 send_reserved_unused.py
 Trên máy Receiver, sau khi máy Sender đã gửi hết gói tin, Ctrl + C để dừng ***tcpdump***:
 
-![img](7)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image7.png?raw=true)
 
 Mở dịch vụ ***ssh*** trên máy Monitor:
 
     sudo systemctl start ssh
 
-![img](8)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image8.png?raw=true)
 
 Chuyển file captured_traffic.pcap từ máy Receiver sang máy Monitor:
 
     scp captured_traffic.pcap ubuntu@173.30.0.5:/home/ubuntu/
 Nhập password là ***ubuntu***:
 
-![img](9)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image9.png?raw=true)
 
 Trên máy Monitor mở file captured_traffic.pcap:
 
     wireshark captured_traffic.pcap &
 
-![img](10)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image10.png?raw=true)
 
 Quan sát trong Wireshark các gói tin có các bit ***Reserved*** được set:
 
-![img](11)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image11.png?raw=true)
 
 *Checkwork 4*<br>
 Trên máy Receiver, thực thi file receive_reserved_unused.py và lưu kết quả vào hidden_mess.txt:
     
     sudo python3 receive_reserved_unused.py > hidden_mess.txt
 
-![img](12)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image12.png?raw=true)
 
 Trên máy Sender, thực thi file send_reserved_unused.py và nhập thông điệp là mã sinh viên của mình, sau đó gửi thông điệp:
 
-![img](13)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image13.png?raw=true)
 
 Trên máy Receiver, in ra nội dung file hidden_mess.txt:
 
-![img](14)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image14.png?raw=true)
 
 Checkwork bài lab:
 
-![img](15)
+![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image15.png?raw=true)
