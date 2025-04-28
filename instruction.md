@@ -58,7 +58,7 @@ In ra nội dung file result_bit_groups.txt:
 *Checkwork 2*<br>
 Trên máy Receiver, thực thi file receive_reserved_unused.py để lắng nghe gói tin đến:
 
-    sudo python3 eceive_reserved_unused.py
+    sudo python3 receive_reserved_unused.py
 
 ![img](https://github.com/DucThinh47/network-steganography/blob/main/images/image4.png?raw=true)
 
